@@ -1,5 +1,5 @@
 ! "Enabled modi" Set from: Default
-rofi.modi:                           drun,keepass:.config/rofi/script/rofi_keepass.sh
+rofi.modi:                           drun
 rofi.show-icons:                     true
 ! "Window opacity" Set from: Default
 ! rofi.opacity:                        100
