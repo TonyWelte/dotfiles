@@ -3,6 +3,7 @@ set encoding=utf-8
 
 " Set colorsheme
 syntax on
+set guicursor=
 set t_Co=256
 colorscheme molokai
 let &colorcolumn=join(range(81,999),",")
