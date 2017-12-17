@@ -202,8 +202,8 @@ exec syncthing -no-browser
 exec diskie -AtF
 exec syncthing -no-browser
 
-for_window[tiling] border pixel 1
-for_window[floating] border normal
+for_window [tiling] border pixel 1
+for_window [floating] border normal
 
 bindsym $mod+d exec rofi -config .config/rofi/config -show drun -theme solarized 
 
