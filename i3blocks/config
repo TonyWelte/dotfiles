@@ -1,6 +1,6 @@
 # i3blocks config file
 
-command=$HOME/.config/i3blocks/blocks/$BLOCK_NAME
+command=$HOME/dotfiles/i3blocks/blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 

@@ -175,7 +175,7 @@ client.urgent $urgent-bg-color $urgent-bg-color $text-color #00ff00
 # finds out, if available)
 bar {
 	strip_workspace_numbers yes
-        status_command i3blocks
+        status_command i3blocks -c dotfiles/i3blocks/config
 	colors {
 		background $bg-color
 	    	separator #757575
