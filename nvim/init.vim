@@ -53,6 +53,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
 Plug 'Shougo/denite.nvim'
 Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-clang'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Shougo/neoinclude.vim'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -76,12 +78,17 @@ call plug#end()
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 0
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+call deoplete#custom#set('ultisnips', 'matchers', ['matcher_fuzzy'])
+autocmd CompleteDone * pclose!
 " deoplete-clang
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/llvm-3.8/lib/clang'
+" deoplete-jedi
+let g:deoplete#sources#jedi#show_docstring = 0
 " ultisnips
-let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsExpandTrigger = "<c-space>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Python linter

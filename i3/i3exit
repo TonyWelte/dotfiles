@@ -2,7 +2,7 @@
 
 case "$1" in
     lock)
-        $HOME/.i3/i3lock
+        $HOME/.config/i3/i3lock
         ;;
     logout)
         i3-msg exit
