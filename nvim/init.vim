@@ -5,6 +5,7 @@ set encoding=utf-8
 syntax on
 set guicursor=
 set t_Co=256
+
 colorscheme molokai
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
@@ -55,6 +56,7 @@ Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-clang'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/neoinclude.vim'
+Plug 'ujihisa/neco-look'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'

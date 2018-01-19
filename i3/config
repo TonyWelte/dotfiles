@@ -90,16 +90,16 @@ bindsym $mod+q focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5: "
+set $workspace1 "1:  web 1"
+set $workspace2 "2:  term 2"
+set $workspace3 "3:  term 3"
+set $workspace4 "4:  term 4"
+set $workspace5 "5:  term 5"
 set $workspace6 "6: 6"
 set $workspace7 "7: 7"
 set $workspace8 "8: 8"
-set $workspace9 "9: "
-set $workspace0 "10: "
+set $workspace9 "9:  media 9"
+set $workspace0 "10:  mail 0"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -189,7 +189,7 @@ client.urgent $urgent-bg-color $urgent-bg-color $text-color #00ff00
 # Polybar
 exec_always --no-startup-id $HOME/dotfiles/polybar/launch.sh
 
-# gaps inner 20
+gaps inner 10
 # gaps outer 20
 
 # Pulse Audio controls
@@ -197,18 +197,20 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 1 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 1 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
 
-assign[class="Thunderbird"] 	$workspace9
-for_window [class="Spotify"] move to workspace $workspace0
+assign[class="Thunderbird"] 	$workspace0
+for_window [class="Spotify"] move to workspace $workspace9
 
 bindsym $mod+Shift+x exec i3lock
 exec_always feh --bg-scale /home/tonywelte/.config/wallpaper.png
 exec_always xrandr --output DVI-D-0 --off --output HDMI-0 --primary --pos 0x0 --rotate normal --output DVI-I-1 --off --output DVI-I-0 --off --output DP-1 --off --output DP-0 --off
 exec dropbox start
 exec syncthing -no-browser
-exec diskie -AtF
-exec thunderbird
+exec udiskie -As
+exec --no-startup-id compton
+exec --no-startup-id gnome-settings-deamon
+# exec thunderbird
 
-for_window [tiling] border pixel 1
+for_window [tiling] border pixel 0
 for_window [floating] border normal
 
 bindsym $mod+d exec rofi -config $HOME/dotfiles/rofi/config -show drun -theme solarized
