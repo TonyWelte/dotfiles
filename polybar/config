@@ -280,6 +280,32 @@ animation-charging-4 = 
 animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
 
+[module/bluetooth]
+type = custom/script
+exec = ~/dotfiles/polybar/scripts/isactive-bluetooth.sh
+interval = 10
+
+[module/dropbox]
+type = custom/script
+exec = ~/dotfiles/polybar/scripts/dropbox-isrunning.sh
+interval = 5
+click-left = ~/dotfiles/polybar/scripts/dropbox-isrunning.sh --toggle
+
+[module/pulseaudio]
+type = custom/script
+exec = ~/dotfiles/polybar/scripts/pulseaudio-fullfeatured.sh
+tail = true
+click-right = exec pavucontrol &
+click-left = ~/dotfiles/polybar/scripts/pulseaudio-fullfeatured.sh --mute
+scroll-up = ~/dotfiles/polybar/scripts/pulseaudio-fullfeatured.sh --up
+scroll-down = ~/dotfiles/polybar/scripts/pulseaudio-fullfeatured.sh --down
+
+[module/system-nvidia-bbswitch]
+type = custom/script
+exec = ~/dotfiles/polybar/scripts/system-nvidia-bbswitch.sh
+interval = 5
+click-left = "optirun -b none nvidia-settings -c :8"
+
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
@@ -292,3 +318,4 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
+
