@@ -40,6 +40,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Mouse support
+set mouse=a
+
 " Line number
 set number relativenumber
 
@@ -102,7 +105,7 @@ let g:airline_powerline_fonts = 1
 " NERD tree
 map <c-t> :NERDTreeToggle<CR>
 " Markdown
-let g:markdown_composer_external_renderer ='pandoc -t html --standalone -m'
+let g:markdown_composer_external_renderer ='pandoc -m -t html'
 let g:markdown_composer_browser = 'firefox -new-window'
 let g:markdown_composer_refresh_rate = 0
 augroup pandoc_syntax

@@ -158,44 +158,34 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #2f343f
+#2f343f
+set $bg-color 	         #ffffff
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
 # window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent $urgent-bg-color $urgent-bg-color $text-color #00ff00
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-# 	strip_workspace_numbers yes
-#         status_command i3blocks
-# 	colors {
-# 		background $bg-color
-# 	    	separator #757575
-# 		#                  border             background         text
-# 		focused_workspace  $bg-color          $bg-color          $text-color
-# 		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-# 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-# 	}
-# }
+#                       border             background         text                 indicator
+client.focused          $bg-color          $bg-color          $text-color          #88ff88
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #88ff88
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #88ff88
+client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          #88ff88
 
 # Polybar
 exec_always --no-startup-id $HOME/dotfiles/polybar/launch.sh
 
 gaps inner 10
-# gaps outer 20
+# gaps outer 10
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 1 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume 1 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 assign[class="Thunderbird"] 	$workspace0
 for_window [class="Spotify"] move to workspace $workspace9
@@ -210,7 +200,7 @@ exec --no-startup-id compton
 exec --no-startup-id gnome-settings-deamon
 # exec thunderbird
 
-for_window [tiling] border pixel 0
+for_window [tiling] border pixel 3
 for_window [floating] border normal
 
 bindsym $mod+d exec rofi -config $HOME/dotfiles/rofi/config -show drun -theme solarized
@@ -228,3 +218,6 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Shift+Return mode "$mode_system"
+# Cycle through active workspace
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev

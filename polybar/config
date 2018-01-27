@@ -49,7 +49,7 @@ font-3 = FontAwesome:size=11
 
 modules-left = wintitle 
 modules-center = i3
-modules-right = pulseaudio volume cpu eth eth2 wifi wifi_dell bluetooth nvidia dropbox battery date 
+modules-right = volume bluetooth nvidia dropbox wifi_dell battery date 
 
 tray-position = right
 tray-padding = 2
@@ -75,16 +75,6 @@ type = internal/xwindow
 format-padding = 0
 format-underline = #008f00
 label-maxlen = 50
-
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-
-label-mounted =  : %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/bspwm]
 type = internal/bspwm
@@ -284,27 +274,21 @@ animation-charging-framerate = 750
 type = custom/script
 exec = ~/dotfiles/polybar/scripts/isactive-bluetooth.sh
 interval = 10
+format-underline = #3B5998
 
 [module/dropbox]
 type = custom/script
-exec = ~/dotfiles/polybar/scripts/dropbox-isrunning.sh
-interval = 5
-click-left = ~/dotfiles/polybar/scripts/dropbox-isrunning.sh --toggle
-
-[module/pulseaudio]
-type = custom/script
-exec = ~/dotfiles/polybar/scripts/pulseaudio-fullfeatured.sh
-tail = true
-click-right = exec pavucontrol &
-click-left = ~/dotfiles/polybar/scripts/pulseaudio-fullfeatured.sh --mute
-scroll-up = ~/dotfiles/polybar/scripts/pulseaudio-fullfeatured.sh --up
-scroll-down = ~/dotfiles/polybar/scripts/pulseaudio-fullfeatured.sh --down
+exec = ~/dotfiles/polybar/scripts/isrunning-dropbox.sh
+interval = 2
+click-left = ~/dotfiles/polybar/scripts/isrunning-dropbox.sh --toggle
+format-underline = #3d9ae8
 
 [module/nvidia]
 type = custom/script
-exec = ~/dotfiles/polybar/scripts/system-nvidia-bbswitch.sh
+exec = ~/dotfiles/polybar/scripts/bbswitch.sh
 interval = 5
 click-left = "optirun -b none nvidia-settings -c :8"
+format-underline = #76b900
 
 [settings]
 screenchange-reload = true
